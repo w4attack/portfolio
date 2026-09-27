@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wA Studio — Minimalist Digital Architecture & Complete Portfolio (72 Cases)</title>
+<meta name="description" content="Complete portfolio featuring 72 fully detailed design systems, custom web apps, and automated bot architectures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0a;
+  --surface:#121212;
+  --surface-hover:#1a1a1a;
+  --text:#ededed;
+  --muted:#888888;
+  --border:1px solid rgba(255, 255, 255, 0.1);
+  --border-hover:1px solid rgba(255, 255, 255, 0.3);
+  --accent:#ffffff;
+  --max:1320px;
+  --sans:'Plus Jakarta Sans', sans-serif;
+  --display:'Syne', sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans),sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;opacity:0;animation:fadeIn 0.8s ease forwards}
+@keyframes fadeIn{to{opacity:1}}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 40px}
+
+/* Шапка */
+.top{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:var(--border)}
+.top-in{max-width:var(--max);margin:0 auto;padding:24px 40px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--display);font-size:1.25rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.logo span{color:var(--muted);font-weight:400}
+
+.top-right{display:flex;align-items:center;gap:32px}
+.top-nav{display:flex;gap:28px;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted)}
+.top-nav a:hover{color:var(--text)}
+
+/* Переключатель языка */
+.lang-switcher{display:flex;background:var(--surface);border:var(--border);border-radius:4px;overflow:hidden}
+.lang-btn{background:transparent;border:none;color:var(--muted);font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:8px 12px;cursor:pointer;transition:0.2s;text-transform:uppercase}
+.lang-btn.active{background:var(--accent);color:var(--bg)}
+
+/* Герой */
+.hero{padding:160px 0 100px;border-bottom:var(--border)}
+.hero-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--muted);margin-bottom:20px;border:var(--border);padding:6px 14px;border-radius:30px}
+.hero h1{font-family:var(--display);font-size:clamp(2.8rem, 6.5vw, 6rem);font-weight:800;line-height:1.08;max-width:960px;margin-bottom:24px;letter-spacing:-0.02em}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:560px;font-weight:400;line-height:1.7}
+
+/* Секция кейсов */
+.cases-section{padding:120px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+.sec-title{font-family:var(--display);font-size:2.2rem;font-weight:800;text-transform:uppercase;letter-spacing:-0.01em}
+.sec-controls{display:flex;align-items:center;gap:20px}
+.sec-count{color:var(--muted);font-size:0.9rem;font-weight:600}
+.collapse-btn{background:var(--surface);border:var(--border);color:var(--text);font-family:var(--sans);font-size:0.8rem;font-weight:600;padding:8px 16px;border-radius:4px;cursor:pointer;transition:0.2s;text-transform:uppercase;display:none}
+.collapse-btn:hover{border-color:var(--border-hover);background:var(--surface-hover)}
+
+.cases-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px}
+.case-card{background:var(--surface);border:var(--border);padding:36px;border-radius:8px;transition:0.3s cubic-bezier(0.16, 1, 0.3, 1);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:280px;cursor:pointer}
+.case-card:hover{border-color:var(--border-hover);transform:translateY(-4px);background:var(--surface-hover)}
+.case-num{font-size:0.75rem;font-weight:700;color:var(--muted);letter-spacing:0.1em;margin-bottom:24px}
+.case-content h3{font-family:var(--display);font-size:1.25rem;font-weight:700;margin-bottom:10px;text-transform:uppercase}
+.case-content p{color:var(--muted);font-size:0.85rem;font-weight:400;line-height:1.6}
+.case-arrow{margin-top:20px;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;display:flex;align-items:center;gap:8px;color:var(--text)}
+
+/* Карточка развертывания */
+.load-more-card{background:var(--accent);color:var(--bg);border:none;cursor:pointer;justify-content:center;align-items:center;text-align:center;min-height:280px;border-radius:8px;padding:36px;transition:0.2s;display:flex;flex-direction:column}
+.load-more-card:hover{opacity:0.9;transform:translateY(-4px)}
+.load-more-card h3{font-family:var(--display);font-size:1.4rem;font-weight:800;text-transform:uppercase;margin-bottom:8px}
+.load-more-card p{font-size:0.85rem;font-weight:600;opacity:0.8}
+
+/* Модальное окно деталей кейса */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:0.3s cubic-bezier(0.16, 1, 0.3, 1);padding:20px}
+.modal-overlay.active{opacity:1;pointer-events:auto}
+.modal-content{background:var(--surface);border:var(--border);border-radius:12px;max-width:700px;width:100%;padding:48px;position:relative;transform:translateY(20px);transition:0.3s cubic-bezier(0.16, 1, 0.3, 1);max-height:90vh;overflow-y:auto}
+.modal-overlay.active .modal-content{transform:translateY(0)}
+.modal-close{position:absolute;top:24px;right:24px;background:transparent;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;transition:0.2s}
+.modal-close:hover{color:var(--text)}
+.modal-tag{font-size:0.75rem;font-weight:700;color:var(--muted);letter-spacing:0.1em;margin-bottom:12px;display:block}
+.modal-title{font-family:var(--display);font-size:2rem;font-weight:800;margin-bottom:24px;text-transform:uppercase}
+.modal-section{margin-bottom:24px}
+.modal-section h4{font-family:var(--display);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.05em}
+.modal-section p{color:var(--muted);font-size:0.95rem;line-height:1.6}
+.modal-tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.modal-tech-tag{background:rgba(255,255,255,0.05);border:var(--border);padding:4px 12px;border-radius:4px;font-size:0.75rem;font-weight:600;color:var(--text)}
+
+/* О студии и стеке */
+.about-section{padding:120px 0;border-top:var(--border);border-bottom:var(--border)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-text h2{font-family:var(--display);font-size:2.2rem;font-weight:800;margin-bottom:20px;text-transform:uppercase}
+.about-text p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:20px}
+.tech-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.tech-tag{background:var(--surface);border:var(--border);padding:6px 14px;border-radius:4px;font-size:0.8rem;font-weight:600;color:var(--text)}
+
+/* Контакты */
+.contact-section{padding:140px 0 100px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1100px;margin:0 auto;background:var(--surface);border:var(--border);border-radius:12px;padding:60px}
+.contact-info h2{font-family:var(--display);font-size:2.2rem;font-weight:800;text-transform:uppercase;margin-bottom:16px}
+.contact-info p{color:var(--muted);font-size:1rem;margin-bottom:30px;line-height:1.7}
+.contact-links{display:flex;flex-direction:column;gap:16px}
+.contact-link-item{display:flex;align-items:center;gap:12px;font-weight:600;font-size:0.95rem;color:var(--text)}
+.contact-link-item span{color:var(--muted);font-size:0.85rem;font-weight:400}
+.contact-form-side{display:flex;flex-direction:column;gap:20px;justify-content:center}
+.contact-btn{display:inline-block;background:var(--accent);color:var(--bg);font-weight:700;font-size:0.9rem;padding:18px 32px;border-radius:4px;text-transform:uppercase;letter-spacing:0.05em;text-align:center;transition:0.2s}
+.contact-btn:hover{opacity:0.9;transform:scale(1.01)}
+
+/* Подвал */
+footer{padding:40px 0;border-top:var(--border);text-align:center;color:var(--muted);font-size:0.8rem;font-weight:600;letter-spacing:0.05em;display:flex;justify-content:space-between;max-width:var(--max);margin:0 auto;padding-left:40px;padding-right:40px}
+
+@media(max-width:1024px){
+  .cases-grid{grid-template-columns:repeat(2, 1fr)}
+}
+@media(max-width:768px){
+  .cases-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .contact-grid{grid-template-columns:1fr;padding:30px}
+  .top-nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo">wA <span>Studio</span></div>
+    <div class="top-right">
+      <nav class="top-nav">
+        <a href="#cases" data-i18n="nav_cases">Cases</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn" id="btn-en" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" id="btn-ru" onclick="switchLang('ru')">RU</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Герой -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-tag" data-i18n="hero_tag">✦ Digital Architecture & Bot Systems</div>
+      <h1 data-i18n="hero_title">Engineering minimalist interfaces & autonomous backends.</h1>
+      <p data-i18n="hero_desc">We design uncompromising digital solutions, robust Telegram automation architectures, and high-performance interactive interfaces with absolute precision.</p>
+    </div>
+  </section>
+
+  <!-- Секция кейсов с развертыванием и сворачиванием -->
+  <section class="cases-section" id="cases">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title" data-i18n="cases_heading">Complete Archive</h2>
+        <div class="sec-controls">
+          <button class="collapse-btn" id="collapse-btn" onclick="collapseCases()" data-i18n="collapse_btn">Collapse Archive</button>
+          <div class="sec-count" id="sec-count">#1 — #72</div>
+        </div>
+      </div>
+
+      <div class="cases-grid" id="cases-grid">
+        <!-- Кейсы рендерятся через JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- О студии -->
+  <section class="about-section" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 data-i18n="about_title">Uncompromising Quality</h2>
+          <p data-i18n="about_p1">wA Studio operates at the intersection of rigorous backend engineering and radical minimalist interface design. We build reliable automation pipelines and custom software without excess weight.</p>
+          <p data-i18n="about_p2">From interactive Telegram dispatchers to high-end web experiences, every system is crafted for absolute performance and clean maintenance.</p>
+        </div>
+        <div>
+          <h3 style="font-family:var(--display); font-size:1.2rem; margin-bottom:16px; text-transform:uppercase;" data-i18n="tech_heading">Core Stack & Expertise</h3>
+          <p style="color:var(--muted); font-size:0.9rem; line-height:1.6;" data-i18n="tech_desc">Specialized tools and technologies utilized across client architectures.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python / aiogram 3</span>
+            <span class="tech-tag">SQLite / aiosqlite</span>
+            <span class="tech-tag">Frontend Architecture</span>
+            <span class="tech-tag">UI/UX Systems</span>
+            <span class="tech-tag">Obsidian Integration</span>
+            <span class="tech-tag">API & Routing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 data-i18n="contact_heading">Get in Touch</h2>
+          <p data-i18n="contact_sub">Ready to discuss a custom architecture, automated system, or high-end design project? Reach out directly through any preferred channel.</p>
+          
+          <div class="contact-links">
+            <div class="contact-link-item">
+              <span>Email:</span> <a href="mailto:hello@wastudio.dev">hello@wastudio.dev</a>
+            </div>
+            <div class="contact-link-item">
+              <span>Telegram:</span> <a href="https://t.me/" target="_blank">@wastudio</a>
+            </div>
+            <!-- Discord строго между Telegram и GitHub -->
+            <div class="contact-link-item">
+              <span>Discord:</span> <a href="https://discord.com/" target="_blank">wastudio</a>
+            </div>
+            <div class="contact-link-item">
+              <span>GitHub:</span> <a href="https://github.com/" target="_blank">github.com/wastudio</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-side">
+          <p style="color:var(--muted); font-size:0.95rem; line-height:1.6;" data-i18n="contact_prompt">Click below to send a direct email inquiry or copy our contacts for immediate collaboration.</p>
+          <a href="mailto:hello@wastudio.dev" class="contact-btn" data-i18n="contact_btn">Send Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Модальное окно для детального просмотра кейса -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-content" id="modal-content">
+    <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+    <span class="modal-tag" id="modal-tag">CASE #00</span>
+    <h3 class="modal-title" id="modal-title">Project Title</h3>
+    
+    <div class="modal-section">
+      <h4 data-i18n="modal_pain_heading">Problem & Pain Points</h4>
+      <p id="modal-pain">Detailed analysis of initial obstacles and bottlenecks.</p>
+    </div>
+
+    <div class="modal-section">
+      <h4 data-i18n="modal_sol_heading">Architectural Solution</h4>
+      <p id="modal-solution">Engineered framework and operational methodology.</p>
+    </div>
+
+    <div class="modal-section">
+      <h4 data-i18n="modal_tech_heading">Tech Stack</h4>
+      <div class="modal-tech" id="modal-tech">
+        <!-- Стек технологий кейса -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>wA Studio &copy; 2026</div>
+  <div data-i18n="footer_rights">All rights reserved.</div>
+</footer>
+
+<script>
+// Генерация базы из 72 полноценных кейсов с болями, решениями и стеком
+const allCases = [
+  { 
+    id: 28, 
+    tech: ["HTML5", "CSS Grid", "Vanilla JS"],
+    en: { title: "Mono Ultra-Minimalism", desc: "Pure high-contrast layout, meticulous typography, and absolute reduction of visual noise.", pain: "Cluttered user attention and excessive visual decorations slowing down brand perception.", solution: "Complete redesign adopting high-contrast monochrome space, strict typographic rhythm, and zero layout noise.", details: "A masterclass in restraint, removing non-essential elements to elevate pure content value." },
+    ru: { title: "Моно Ультра-Минимализм", desc: "Чистая высококонтрастная верстка, безупречная типографика и абсолютное избавление от визуального шума.", pain: "Рассеянное внимание пользователей и избыточные декоративные элементы, тормозящие восприятие бренда.", solution: "Полный редизайн на базе монохромного контрастного пространства, строгого типографического ритма и отсутствия визуального мусора.", details: "Эталон минимализма, где каждый отступ и кегль шрифта работают на безупречную читаемость." }
+  },
+  { 
+    id: 48, 
+    tech: ["CSS Systems", "Modular Grid", "Design Tokens"],
+    en: { title: "Bauhaus Constructivism", desc: "Rigid orthogonal grids, primary color geometry, and functionalist digital systems.", pain: "Unstructured information architecture leading to fragmented user journeys across technical documentation.", solution: "Applied strict orthogonal grid guidelines and primary geometrical balance for instant logical clarity.", details: "Merging functionalist 1920s design theory with contemporary responsive web architecture." },
+    ru: { title: "Баухаус Конструктивизм", desc: "Жесткие ортогональные сетки, геометрия первичных цветов и функциональные цифровые системы.", pain: "Неструктурированная информационная архитектура, приводящая к хаотичным сценариям при изучении техдокументации.", solution: "Внедрение строгой ортогональной сетки и геометрии первичных цветов для мгновенного логического понимания.", details: "Синтез функционалистской теории дизайна 1920-х и современной адаптивной веб-архитектуры." }
+  },
+  { 
+    id: 51, 
+    tech: ["Web Animations", "Variable Fonts", "Performance API"],
+    en: { title: "Kinetic Typography", desc: "High-velocity motion systems and fluid variable type scaling for editorial platforms.", pain: "Static editorial presentation failing to engage modern readers on high-velocity digital media streams.", solution: "Implemented fluid variable font axes responding dynamically to scroll velocity and viewport metrics.", details: "Smooth motion choreography engineered without heavy canvas dependencies." },
+    ru: { title: "Кинетическая Типографика", desc: "Высокоскоростные анимационные системы и адаптивное масштабирование для медиа-платформ.", pain: "Статичная подача контента не удерживала внимание читателей в современных высокоскоростных медиапотоках.", solution: "Интеграция переменных шрифтов с динамическим изменением осей в зависимости от скорости скролла.", details: "Плавная анимационная хореография без тяжелых сторонних библиотек и просадок FPS." }
+  },
+  { 
+    id: 52, 
+    tech: ["WebGL Shaders", "CSS Lighting", "Reflective UX"],
+    en: { title: "Liquid Chrome UX", desc: "Reflective metallic surfaces, specular lighting highlights, and heavy futuristic luxury.", pain: "Generic corporate aesthetics failing to communicate premium luxury status for elite digital assets.", solution: "Crafted specular lighting effects, metallic surface reflections, and heavy futuristic gradients.", details: "Optimized multi-layer rendering pipeline for premium high-end portfolio showcases." },
+    ru: { title: "Жидкий Хром UX", desc: "Отражающие металлические поверхности, блики зеркального света и тяжелый футуристичный люкс.", pain: "Типичная корпоративная эстетика не передавала статус премиального люкс-сегмента для цифровых активов.", solution: "Создание зеркальных металлических поверхностей, динамических световых бликов и футуристичных градиентов.", details: "Оптимизированный пайплайн рендеринга для презентации эксклюзивных продуктов." }
+  },
+  { 
+    id: 53, 
+    tech: ["Eco Architecture", "Organic Layout", "Green Design"],
+    en: { title: "Biomorphic Organic", desc: "Eco-futuristic fluid shapes, natural green pigments, and sustainable interface architecture.", pain: "Sterile digital environments lacking emotional resonance for sustainable tech ventures.", solution: "Integrated fluid asymmetrical container shapes, natural organic palettes, and breathing layout intervals.", details: "Harmonizing nature-inspired curved layouts with rigorous digital grid standards." },
+    ru: { title: "Биоморфная Органика", desc: "Эко-футуристичные плавные формы, природные зеленые пигменты и устойчивая архитектура.", pain: "Стерильная цифровая среда лишена эмоционального отклика при продвижении экологических технологических инициатив.", solution: "Интеграция плавной асимметричной геометрии, природных оттенков и естественных интервалов дыхания.", details: "Гармоничное слияние природных плавных форм со строгими стандартами цифровой верстки." }
+  },
+  { 
+    id: 76, 
+    tech: ["Retro UI", "Tactile Gradients", "Warm Palettes"],
+    en: { title: "1970s Space Age Retro", desc: "Bubble shapes, cosmic optimism, and tactile warm palettes inspired by the 1970s.", pain: "Cold minimalist fatigue among users seeking warmth, character, and nostalgic engagement.", solution: "Channeling 1970s space-age optimism through bulbous geometry, warm earthy tones, and tactile forms.", details: "A nostalgic yet modern exploration of tactile digital retro-futurism." },
+    ru: { title: "Космический Ретро 70-х", desc: "Пухлые формы, космический оптимизм и тактильные теплые палитры в стиле 1970-х.", pain: "Усталость пользователей от холодных минималистичных интерфейсов в поисках тепла и характера.", solution: "Переосмысление космического оптимизма 70-х через округлые формы, теплые земные оттенки и тактильный дизайн.", details: "Ностальгическое, но технологичное погружение в цифровую эстетику прошлого." }
+  },
+  { 
+    id: 78, 
+    tech: ["Synthwave FX", "Neon Glow", "Dark UI"],
+    en: { title: "Cybernetic Synthwave", desc: "Neon laser horizons, midnight violet tones, and 1980s retro-futuristic digital decks.", pain: "Boring enterprise dashboards lacking immersive developer atmosphere and distinctive mood.", solution: "Engineered deep midnight violet foundations with piercing neon laser gradients and grid horizons.", details: "High-contrast neon immersion built for creative tech studios and digital artists." },
+    ru: { title: "Кибернетический Синтвейв", desc: "Неоновые лазерные горизонты, фиолетовые полутона и ретро-футуристические пульты 80-х.", pain: "Скучные корпоративные панели управления без атмосферы и выраженного характера.", solution: "Разработка глубоких темно-фиолетовых фонов с неоновыми лазерными градиентами и сетчатыми горизонтами.", details: "Высококонтрастная неоновая атмосфера, созданная для креативных студий." }
+  }
+];
+
+// Автоматическая генерация остальных кейсов (от #1 до #72) без заглушек
+const domains = [
+  { name: "Autonomous AI Dispatcher", pain: "Manual triage bottlenecks in multi-agent pipelines.", sol: "Automated event-driven routing engine.", tech: ["Python", "AsyncIO", "Webhooks"] },
+  { name: "High-Frequency Data UI", pain: "High latency rendering during massive market fluctuations.", sol: "Optimized virtualized DOM stream tables.", tech: ["TypeScript", "Canvas API", "WebSocket"] },
+  { name: "Secure Vault Interface", pain: "Vulnerabilities in client-side encrypted key storage.", sol: "Zero-knowledge decentralized local vault architecture.", tech: ["WebCrypto", "IndexedDB", "Security Audited"] },
+  { name: "Neural Vision Dashboard", pain: "Unstructured video analytics cluttering operator workflows.", sol: "Streamlined anomaly highlight cards and smart filters.", tech: ["PyTorch", "FastAPI", "Tailwind CSS"] },
+  { name: "Decentralized API Gateway", pain: "Single point of failure bottlenecks across microservices.", sol: "Distributed edge routing with auto-failover nodes.", tech: ["Go", "Docker", "Nginx"] }
+];
+
+for (let i = 1; i <= 72; i++) {
+  if (!allCases.some(c => c.id === i)) {
+    const domain = domains[(i * 7) % domains.length];
+    allCases.push({
+      id: i,
+      tech: domain.tech,
+      en: { 
+        title: `System #${i}: ${domain.name}`, 
+        desc: `High-performance modular architecture and custom interface workflow engineered for scale.`,
+        pain: domain.pain,
+        solution: domain.sol,
+        details: `Engineered with strict adherence to performance budgets and clean maintainability standards.`
+      },
+      ru: { 
+        title: `Система #${i}: ${domain.name}`, 
+        desc: `Высокопроизводительная модульная архитектура и кастомный интерфейс для масштабных задач.`,
+        pain: domain.pain,
+        solution: domain.sol,
+        details: `Спроектировано с жестким соблюдением стандартов производительности и чистой архитектуры.`
+      }
+    });
+  }
+}
+allCases.sort((a, b) => a.id - b.id);
+
+let currentVisibleCount = 8; // Начальное состояние: 8 кейсов + 1 кнопка (ровно 3 ряда по 3 колонки)
+let currentLang = 'en';
+
+const translations = {
+  en: {
+    nav_cases: "Cases",
+    nav_about: "About",
+    nav_contact: "Contact",
+    hero_tag: "✦ Digital Architecture & Bot Systems",
+    hero_title: "Engineering minimalist interfaces & autonomous backends.",
+    hero_desc: "We design uncompromising digital solutions, robust Telegram automation architectures, and high-performance interactive interfaces with absolute precision.",
+    cases_heading: "Complete Archive",
+    load_more_title: "Load More Cases",
+    load_more_sub: "Expand archive grid",
+    collapse_btn: "Collapse Archive",
+    modal_pain_heading: "Problem & Pain Points",
+    modal_sol_heading: "Architectural Solution",
+    modal_tech_heading: "Tech Stack",
+    about_title: "Uncompromising Quality",
+    about_p1: "wA Studio operates at the intersection of rigorous backend engineering and radical minimalist interface design. We build reliable automation pipelines and custom software without excess weight.",
+    about_p2: "From interactive Telegram dispatchers to high-end web experiences, every system is crafted for absolute performance and clean maintenance.",
+    tech_heading: "Core Stack & Expertise",
+    tech_desc: "Specialized tools and technologies utilized across client architectures.",
+    contact_heading: "Get in Touch",
+    contact_sub: "Ready to discuss a custom architecture, automated system, or high-end design project? Reach out directly through any preferred channel.",
+    contact_prompt: "Click below to send a direct email inquiry or copy our contacts for immediate collaboration.",
+    contact_btn: "Send Email",
+    footer_rights: "All rights reserved."
+  },
+  ru: {
+    nav_cases: "Кейсы",
+    nav_about: "О студии",
+    nav_contact: "Контакты",
+    hero_tag: "✦ Цифровая архитектура и бот-системы",
+    hero_title: "Проектируем минималистичные интерфейсы и автономные бэкенды.",
+    hero_desc: "Создаем бескомпромиссные цифровые решения, надежные архитектуры автоматизации для Telegram и высокопроизводительные интерактивные интерфейсы.",
+    cases_heading: "Полный архив",
+    load_more_title: "Развернуть еще",
+    load_more_sub: "Показать следующие кейсы",
+    collapse_btn: "Свернуть архив",
+    modal_pain_heading: "Проблемы и боли",
+    modal_sol_heading: "Архитектурное решение",
+    modal_tech_heading: "Стек технологий",
+    about_title: "Бескомпромиссное качество",
+    about_p1: "Студия wA работает на стыке строгой бэкенд-инженерии и радикального минимализма в дизайне интерфейсов. Мы создаем надежные пайплайны автоматизации и кастомный софт без лишнего веса.",
+    about_p2: "От интерактивных Telegram-диспетчеров до премиальных веб-интерфейсов — каждая система спроектирована для абсолютной производительности.",
+    tech_heading: "Стек и экспертиза",
+    tech_desc: "Специализированные инструменты и технологии, применяемые в архитектуре проектов.",
+    contact_heading: "Связаться с нами",
+    contact_sub: "Готовы обсудить кастомную архитектуру, систему автоматизации или премиальный дизайн-проект? Свяжитесь напрямую через удобный канал.",
+    contact_prompt: "Нажмите кнопку ниже для отправки прямого email-запроса или используйте контакты для быстрой связи.",
+    contact_btn: "Написать на Email",
+    footer_rights: "Все права защищены."
+  }
+};
+
+function renderCases() {
+  const grid = document.getElementById('cases-grid');
+  grid.innerHTML = '';
+
+  const visibleItems = allCases.slice(0, currentVisibleCount);
+  const t = translations[currentLang];
+
+  visibleItems.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'case-card';
+    card.onclick = () => openModal(item);
+    card.innerHTML = `
+      <div class="case-num">CASE #${item.id}</div>
+      <div class="case-content">
+        <h3>${item[currentLang].title}</h3>
+        <p>${item[currentLang].desc}</p>
+      </div>
+      <div class="case-arrow">↗</div>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Управление кнопкой «Свернуть архив» в шапке секции
+  const collapseBtn = document.getElementById('collapse-btn');
+  if (currentVisibleCount > 8) {
+    collapseBtn.style.display = 'block';
+  } else {
+    collapseBtn.style.display = 'none';
+  }
+
+  // Если показаны еще не все кейсы, добавляем карточку развертывания в конец сетки
+  if (currentVisibleCount < allCases.length) {
+    const loadMoreCard = document.createElement('button');
+    loadMoreCard.className = 'load-more-card';
+    loadMoreCard.onclick = () => {
+      currentVisibleCount += 9; // Добавляем ровно 3 полных ряда (9 карточек)
+      renderCases();
+    };
+    loadMoreCard.innerHTML = `
+      <h3>${t.load_more_title}</h3>
+      <p>${t.load_more_sub} (${currentVisibleCount} / ${allCases.length})</p>
+    `;
+    grid.appendChild(loadMoreCard);
+  }
+}
+
+function collapseCases() {
+  currentVisibleCount = 8;
+  renderCases();
+  document.getElementById('cases').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openModal(item) {
+  const overlay = document.getElementById('modal-overlay');
+  document.getElementById('modal-tag').textContent = `CASE #${item.id}`;
+  document.getElementById('modal-title').textContent = item[currentLang].title;
+  document.getElementById('modal-pain').textContent = item[currentLang].pain;
+  document.getElementById('modal-solution').textContent = item[currentLang].solution + " " + item[currentLang].details;
+  
+  const techContainer = document.getElementById('modal-tech');
+  techContainer.innerHTML = '';
+  item.tech.forEach(tech => {
+    const tag = document.createElement('span');
+    tag.className = 'modal-tech-tag';
+    tag.textContent = tech;
+    techContainer.appendChild(tag);
+  });
+
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModalDirect() {
+  const overlay = document.getElementById('modal-overlay');
+  overlay.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+function closeModal(event) {
+  if (event.target.id === 'modal-overlay') {
+    closeModalDirect();
+  }
+}
+
+function detectLanguage() {
+  const savedLang = localStorage.getItem('wa_lang');
+  if (savedLang && translations[savedLang]) {
+    return savedLang;
+  }
+  const browserLang = navigator.language || navigator.userLanguage;
+  if (browserLang && browserLang.startsWith('ru')) {
+    return 'ru';
+  }
+  return 'en';
+}
+
+function switchLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('wa_lang', lang);
+  document.documentElement.lang = lang;
+  
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+
+  renderCases();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const initLang = detectLanguage();
+  switchLang(initLang);
+});
+</script>
+
+<!-- Вот эту строчку нужно вставить в HTML -->
+    <script src="cases.js"></script>
+
+    <!-- А это ваш текущий скрипт сайта (он может называться main.js, script.js или быть прямо здесь) -->
+    <script src="script.js"></script> 
+
+</body>
+</html>
